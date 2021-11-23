@@ -369,38 +369,28 @@
                         </a>
                     </li>
                     <!--Databoxes-->
-                    <li>
-                        <a href="databoxes.html">
-                            <i class="menu-icon glyphicon glyphicon-tasks"></i>
-                            <span class="menu-text"> Data Boxes </span>
-                        </a>
-                    </li>
+
                     <!--Widgets-->
-                    <li>
-                        <a href="widgets.html">
-                            <i class="menu-icon fa fa-th"></i>
-                            <span class="menu-text"> Widgets </span>
-                        </a>
-                    </li>
+
                     <!--UI Elements-->
                     <li>
                         <a href="#" class="menu-dropdown">
                             <i class="menu-icon fa fa-desktop"></i>
-                            <span class="menu-text"> Elements </span>
+                            <span class="menu-text">Accounts</span>
 
                             <i class="menu-expand"></i>
                         </a>
 
                         <ul class="submenu">
                             <li>
-                                <a href="elements.html">
-                                    <span class="menu-text">Basic Elements</span>
+                                <a href="{{url('CreateAccounts')}}">
+                                    <span class="menu-text">Create New Accounts</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="menu-dropdown">
                                     <span class="menu-text">
-                                        Icons
+                                      Manage Accounts
                                     </span>
                                     <i class="menu-expand"></i>
                                 </a>
@@ -409,62 +399,18 @@
                                     <li>
                                         <a href="font-awesome.html">
                                             <i class="menu-icon fa fa-rocket"></i>
-                                            <span class="menu-text">Font Awesome</span>
+                                            <span class="menu-text">Billing</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="glyph-icons.html">
-                                            <i class="menu-icon glyphicon glyphicon-stats"></i>
-                                            <span class="menu-text">Glyph Icons</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="typicon.html">
-                                            <i class="menu-icon typcn typcn-location-outline"></i>
-                                            <span class="menu-text"> Typicons</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="weather-icons.html">
-                                            <i class="menu-icon wi wi-hot"></i>
-                                            <span class="menu-text">Weather Icons</span>
-                                        </a>
-                                    </li>
+
+
                                 </ul>
                             </li>
-                            <li>
-                                <a href="tabs.html">
-                                    <span class="menu-text">Tabs & Accordions</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="alerts.html">
-                                    <span class="menu-text">Alerts & Tooltips</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="modals.html">
-                                    <span class="menu-text">Modals & Wells</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="buttons.html">
-                                    <span class="menu-text">Buttons</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="nestable-list.html">
-                                    <span class="menu-text"> Nestable List</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="treeview.html">
-                                    <span class="menu-text">Treeview</span>
-                                </a>
-                            </li>
+
+
                         </ul>
                     </li>
-                    <!--Tables-->
+                    <!--Tables
                     <li>
                         <a href="#" class="menu-dropdown">
                             <i class="menu-icon fa fa-table"></i>
@@ -486,7 +432,7 @@
                             </li>
                         </ul>
                     </li>
-                    <!--Forms-->
+                    <! -- Forms
                     <li>
                         <a href="#" class="menu-dropdown">
                             <i class="menu-icon fa fa-pencil-square-o"></i>
@@ -535,7 +481,7 @@
                             </li>
                         </ul>
                     </li>
-                    <!--Charts-->
+                    <!--Charts
                     <li>
                         <a href="#" class="menu-dropdown">
                             <i class="menu-icon fa fa-bar-chart-o"></i>
@@ -573,14 +519,14 @@
                             </li>
                         </ul>
                     </li>
-                    <!--Profile-->
+                    <!--Profile
                     <li>
                         <a href="profile.html">
                             <i class="menu-icon fa fa-picture-o"></i>
                             <span class="menu-text">Profile</span>
                         </a>
                     </li>
-                    <!--Mail-->
+                    <!--Mail
                     <li>
                         <a href="#" class="menu-dropdown">
                             <i class="menu-icon fa fa-envelope-o"></i>
@@ -608,7 +554,7 @@
                             </li>
                         </ul>
                     </li>
-                    <!--Calendar-->
+                    <!--Calendar
                     <li>
                         <a href="calendar.html">
                             <i class="menu-icon fa fa-calendar"></i>
@@ -617,7 +563,7 @@
                             </span>
                         </a>
                     </li>
-                    <!--Pages-->
+                    <!--Pages
                     <li>
                         <a href="#" class="menu-dropdown">
                             <i class="menu-icon glyphicon glyphicon-paperclip"></i>
@@ -665,7 +611,7 @@
                             </li>
                         </ul>
                     </li>
-                    <!--More Pages-->
+                    <!--More Pages
                     <li class="active open">
                         <a href="#" class="menu-dropdown">
                             <i class="menu-icon glyphicon glyphicon-link"></i>
@@ -746,41 +692,13 @@
                         </ul>
                     </li>
                     <!--Right to Left-->
-                    <li>
-                        <a href="#" class="menu-dropdown">
-                            <i class="menu-icon fa fa-align-right"></i>
-                            <span class="menu-text"> Right to Left </span>
 
-                            <i class="menu-expand"></i>
-                        </a>
-                        <ul class="submenu">
-                            <li>
-                                <a>
-                                    <span class="menu-text">RTL</span>
-                                    <label class="pull-right margin-top-10">
-                                        <input id="rtl-changer" class="checkbox-slider slider-icon colored-primary" type="checkbox">
-                                        <span class="text"></span>
-                                    </label>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index-rtl-ar.html">
-                                    <span class="menu-text">Arabic Layout</span>
-                                </a>
-                            </li>
 
-                            <li>
-                                <a href="index-rtl-fa.html">
-                                    <span class="menu-text">Persian Layout</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
                     <li>
                         <a href="versions.html">
                             <i class="menu-icon glyphicon glyphicon-fire themesecondary"></i>
                             <span class="menu-text">
-                                BeyondAdmin Versions
+                                Smart Soultions Versions
                             </span>
                         </a>
                     </li>

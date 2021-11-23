@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+    //    $this->middleware('auth');  // this is comment for testwisae only
     }
 
     /**
@@ -24,5 +24,20 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+    public function CreateAccounts()
+    {
+
+
+
+
+
+      $InformationArray=Array(
+        "ParentPage" =>"Account Management",
+        "CurrentPage"=>"Create New Accounts",
+        "FormName"=>"Account Information",
+      );
+      return view('CreateAccounts',$InformationArray);
+
     }
 }
