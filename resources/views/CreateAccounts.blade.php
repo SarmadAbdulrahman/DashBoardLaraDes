@@ -49,6 +49,10 @@
 
 
                     <div class="row">
+
+                      <form  action="{{url('StoreNewAccounts')}}" method="post">
+                       @csrf
+
                                        <div class="col-lg-6 col-sm-6 col-xs-12">
                                            <div class="widget flat radius-bordered">
                                                <div class="widget-header bg-blue">
@@ -80,6 +84,31 @@
                                                                    <input type="text"  name="Password" class="form-control" id="passwordInput" placeholder="Password">
                                                                    <i class="fa fa-lock circular"></i>
                                                                </span>
+                                                           </div>
+
+
+
+
+                                                           <div class="form-title">
+                                                               business Information
+                                                           </div>
+                                                           <div class="row">
+                                                               <div class="col-sm-6">
+                                                                   <div class="form-group">
+                                                                       <span class="input-icon icon-right">
+                                                                           <input type="text"  name="Shope_Name"  class="form-control" placeholder="Shope Name">
+                                                                          <i class="fas fa-store-alt"></i>
+                                                                       </span>
+                                                                   </div>
+                                                               </div>
+                                                               <div class="col-sm-6">
+                                                                   <div class="form-group">
+                                                                       <span class="input-icon icon-right">
+                                                                           <input type="text" name="Shope_Type"  class="form-control" placeholder="Shope Type">
+                                                                           <i class="fas fa-store-alt"></i>
+                                                                       </span>
+                                                                   </div>
+                                                               </div>
                                                            </div>
 
                                                            <div class="form-title">
@@ -140,6 +169,7 @@
                                                </div>
                                            </div>
                 </div>
+                    </form>
                 <!-- /Page Body -->
             </div>
             <!-- /Page Content -->

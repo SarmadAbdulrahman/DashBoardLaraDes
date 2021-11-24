@@ -11,7 +11,7 @@ Date:2021-11-22 11:41 AM
 <!-- Head -->
 <head>
     <meta charset="utf-8" />
-    <title>PageName</title>
+    <title>{{$CurrentPage}}</title>
 
     <meta name="description" content="blank page" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,7 +25,7 @@ Date:2021-11-22 11:41 AM
     <link href="{{url('assets/css/font-awesome.min.css')}}" rel="stylesheet" />
     <link href="{{url('assets/css/weather-icons.min.css')}}" rel="stylesheet" />
 
-  
+
 
     <!--Beyond styles-->
     <link id="beyond-link" href="{{url('assets/css/beyond.min.css')}}" rel="stylesheet" />

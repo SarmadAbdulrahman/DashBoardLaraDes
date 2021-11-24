@@ -28,16 +28,26 @@ class HomeController extends Controller
     public function CreateAccounts()
     {
 
-
-
-
-
       $InformationArray=Array(
-        "ParentPage" =>"Account Management",
-        "CurrentPage"=>"Create New Accounts",
-        "FormName"=>"Account Information",
+        "ParentPage"  =>   "Account Management",
+        "CurrentPage" =>   "Create New Accounts",
+        "FormName"    =>    "Account Information",
       );
       return view('CreateAccounts',$InformationArray);
 
     }
+
+
+     public function StoreNewAccounts(Request $Request)
+     {
+
+       dd($Request);
+
+
+
+     }
+
+
+
+
 }
