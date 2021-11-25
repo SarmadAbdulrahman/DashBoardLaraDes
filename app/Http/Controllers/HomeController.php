@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cocker;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 
 class HomeController extends Controller
 {
@@ -45,7 +49,7 @@ class HomeController extends Controller
        $validated = $Request->validate([
          'Username' => ['required', 'string', 'max:255'],
          'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-         'mobile' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+         'mobile' => ['required', 'string', 'max:255', 'unique:users'],
          'Shope_Name' => ['required', 'string', 'max:255'],
          'Shope_Type' => ['required', 'string', 'max:255'],
          'Name' => ['required', 'string', 'max:255'],
@@ -54,13 +58,26 @@ class HomeController extends Controller
    ]);
 
 
-       dd($Request);
+   $user=User::create([
+       'name' => $Request['Username'],
+       'email' => $Request['email'],
+        'mobile' => $Request['mobile'],
+       'password' => Hash::make($Request['password'])
+     ]);
 
 
+
+      Cocker::create([
+        "Shope_Name"=>$Request->Shope_Name,
+        "Shope_Type"=>$Request->Shope_Type,
+        "user_id"   =>$user->id
+      ]);
+
+
+
+
+      return redirect()->back();
 
      }
-
-
-
 
 }
