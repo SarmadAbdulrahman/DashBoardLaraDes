@@ -59,6 +59,17 @@
                                                    <span class="widget-caption">{{$FormName}}</span>
                                                </div>
                                                <div class="widget-body">
+
+                                                 @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
                                                    <div id="registration-form">
                                                        <form role="form">
                                                            <div class="form-title">
@@ -75,7 +86,7 @@
 
                                                            <div class="form-group">
                                                                <span class="input-icon icon-right">
-                                                                   <input type="text" name="Email"  class="form-control" id="emailInput" placeholder="Email Address">
+                                                                   <input type="text" name="email"  class="form-control" id="emailInput" placeholder="Email Address">
                                                                    <i class="fa fa-envelope-o circular"></i>
                                                                </span>
                                                            </div>
@@ -136,7 +147,7 @@
                                                                <div class="col-sm-6">
                                                                    <div class="form-group">
                                                                        <span class="input-icon icon-right">
-                                                                           <input type="text" name="Phone_1"  class="form-control" placeholder="Phone one">
+                                                                           <input type="text" name="mobile"  class="form-control" placeholder="Phone one">
                                                                            <i class="glyphicon glyphicon-earphone"></i>
                                                                        </span>
                                                                    </div>

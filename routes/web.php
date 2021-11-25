@@ -14,7 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+  $InformationArray=Array(
+    "ParentPage"  =>   "Account Management",
+    "CurrentPage" =>   "Create New Accounts",
+    "FormName"    =>    "Account Information",
+  );
+    return view('welcome',$InformationArray);
 });
 
 Auth::routes();

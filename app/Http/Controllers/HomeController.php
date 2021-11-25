@@ -41,6 +41,19 @@ class HomeController extends Controller
      public function StoreNewAccounts(Request $Request)
      {
 
+  // dd($Request);
+       $validated = $Request->validate([
+         'Username' => ['required', 'string', 'max:255'],
+         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+         'mobile' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+         'Shope_Name' => ['required', 'string', 'max:255'],
+         'Shope_Type' => ['required', 'string', 'max:255'],
+         'Name' => ['required', 'string', 'max:255'],
+         'Family' => ['required', 'string', 'max:255'],
+         'Phone_2' => ['required', 'string', 'max:255'],
+   ]);
+
+
        dd($Request);
 
 
