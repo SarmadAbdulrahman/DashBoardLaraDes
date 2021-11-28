@@ -50,7 +50,7 @@
 
             <div class="row">
 
-                <form  action="{{url('StoreNewAccounts')}}" method="post">
+                <form  action="{{url($FormPosting)}}" method="post">
                     @csrf
 
                     <div class="col-lg-6 col-sm-6 col-xs-12">
@@ -82,11 +82,11 @@
                                 <div id="registration-form">
                                     <form role="form">
                                         <div class="form-title">
-                                            User Information
+                                            Lead  Information
                                         </div>
                                         <div class="form-group">
                                                                <span class="input-icon icon-right">
-                                                                   <input type="text" name="Username" class="form-control" id="userameInput" placeholder="Username">
+                                                                   <input type="text" name="Username" class="form-control"  placeholder="Username">
                                                                    <i class="glyphicon glyphicon-user circular"></i>
                                                                </span>
                                         </div>

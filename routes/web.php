@@ -32,3 +32,4 @@ Route::post('/StoreNewAccounts', [App\Http\Controllers\HomeController::class, 'S
 
 
 Route::get('/CreateLead', [App\Http\Controllers\HomeController::class, 'CreateLead'])->name('CreateLead');
+Route::post('/StoreNewLeads', [App\Http\Controllers\HomeController::class, 'StoreNewLeads'])->name('StoreNewLeads');

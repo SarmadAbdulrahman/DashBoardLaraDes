@@ -97,10 +97,16 @@ class HomeController extends Controller
     // CreateLead
     public function CreateLead()
     {
+
+        $FormPosting="StoreNewLeads";
+
+
+
         $InformationArray=Array(
             "ParentPage"  =>   "Account Management",
             "CurrentPage" =>   "Create New Lead",
             "FormName"    =>    "Lead Information",
+            "FormPosting" =>     $FormPosting
         );
         return view('CreateLead',$InformationArray);
 
@@ -110,6 +116,8 @@ class HomeController extends Controller
 
     public function StoreNewLeads(Request $Request)
     {
+
+
 
         $validated = $Request->validate([
             'Username' => ['required', 'string', 'max:255'],
@@ -123,7 +131,7 @@ class HomeController extends Controller
         ]);
 
 
-      
+
 
 
 
