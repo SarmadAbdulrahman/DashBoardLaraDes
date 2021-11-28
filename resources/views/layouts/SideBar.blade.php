@@ -387,6 +387,15 @@
                                     <span class="menu-text">Create New Accounts</span>
                                 </a>
                             </li>
+
+
+                            <li>
+                                <a href="{{url('CreateLead')}}">
+                                    <span class="menu-text">Our leads </span>
+                                </a>
+                            </li>
+
+
                             <li>
                                 <a href="#" class="menu-dropdown">
                                     <span class="menu-text">

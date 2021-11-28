@@ -29,3 +29,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/CreateAccounts', [App\Http\Controllers\HomeController::class, 'CreateAccounts'])->name('CreateAccounts');
 //StoreNewAccounts
 Route::post('/StoreNewAccounts', [App\Http\Controllers\HomeController::class, 'StoreNewAccounts'])->name('StoreNewAccounts');
+
+
+Route::get('/CreateLead', [App\Http\Controllers\HomeController::class, 'CreateLead'])->name('CreateLead');

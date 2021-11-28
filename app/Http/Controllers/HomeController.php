@@ -31,6 +31,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+
+    // CreateLead
     public function CreateAccounts()
     {
 
@@ -88,5 +91,44 @@ class HomeController extends Controller
       return redirect()->back()->with('success','Shop successfully added.');
 
      }
+
+
+
+    // CreateLead
+    public function CreateLead()
+    {
+        $InformationArray=Array(
+            "ParentPage"  =>   "Account Management",
+            "CurrentPage" =>   "Create New Lead",
+            "FormName"    =>    "Lead Information",
+        );
+        return view('CreateLead',$InformationArray);
+
+    }
+
+
+
+    public function StoreNewLeads(Request $Request)
+    {
+
+        $validated = $Request->validate([
+            'Username' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'mobile' => ['required', 'string', 'max:255', 'unique:users'],
+            'Shope_Name' => ['required', 'string', 'max:255'],
+            'Shope_Type' => ['required', 'string', 'max:255'],
+            'Name' => ['required', 'string', 'max:255'],
+            'Family' => ['required', 'string', 'max:255'],
+            'Phone_2' => ['required', 'string', 'max:255'],
+        ]);
+
+
+      
+
+
+
+        return redirect()->back()->with('success','Shop successfully added.');
+
+    }
 
 }
