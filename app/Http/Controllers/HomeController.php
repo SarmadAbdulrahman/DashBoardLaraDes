@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FileDump;
 use Illuminate\Http\Request;
 use App\Models\Cocker;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
+
 
 
 
@@ -56,7 +55,6 @@ class HomeController extends Controller
      public function StoreNewAccounts(Request $Request)
      {
 
-  // dd($Request);
        $validated = $Request->validate([
          'Username' => ['required', 'string', 'max:255'],
          'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -87,7 +85,7 @@ class HomeController extends Controller
 
 
 
-      return redirect()->back();
+      return redirect()->back()->with('success','Shop successfully added.');
 
      }
 
