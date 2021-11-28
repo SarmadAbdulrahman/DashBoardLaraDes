@@ -35,6 +35,11 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'datFiles' => [
+            'driver' => 'local',
+            'root' => '/Users/murtadajawad/Desktop/dat',
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

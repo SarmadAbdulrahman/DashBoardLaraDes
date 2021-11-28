@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FileDump;
 use Illuminate\Http\Request;
 use App\Models\Cocker;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class HomeController extends Controller
@@ -31,6 +34,14 @@ class HomeController extends Controller
     }
     public function CreateAccounts()
     {
+
+
+    //  $path = public_path('test');
+    // $files = File::allFiles($path);
+
+
+
+      // return mime type ala mimetype extension
 
       $InformationArray=Array(
         "ParentPage"  =>   "Account Management",
