@@ -10,6 +10,6 @@ class DealStatus extends Model
     use HasFactory;
 
     protected $fillable=[
-        'name'
+        'name','id'
     ];
 }

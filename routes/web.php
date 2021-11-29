@@ -27,9 +27,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/CreateAccounts', [App\Http\Controllers\HomeController::class, 'CreateAccounts'])->name('CreateAccounts');
-//StoreNewAccounts
+//StoreNewAccounts   leadStatus
 Route::post('/StoreNewAccounts', [App\Http\Controllers\HomeController::class, 'StoreNewAccounts'])->name('StoreNewAccounts');
 
 
 Route::get('/CreateLead', [App\Http\Controllers\HomeController::class, 'CreateLead'])->name('CreateLead');
 Route::post('/StoreNewLeads', [App\Http\Controllers\HomeController::class, 'StoreNewLeads'])->name('StoreNewLeads');
+
+
+Route::get('/leadStatus', [App\Http\Controllers\HomeController::class, 'leadStatus'])->name('leadStatus');

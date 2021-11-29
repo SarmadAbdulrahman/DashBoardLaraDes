@@ -399,16 +399,16 @@
                             <li>
                                 <a href="#" class="menu-dropdown">
                                     <span class="menu-text">
-                                      Manage Accounts
+                                      Manage Leads
                                     </span>
                                     <i class="menu-expand"></i>
                                 </a>
 
                                 <ul class="submenu">
                                     <li>
-                                        <a href="font-awesome.html">
+                                        <a href="{{url('leadStatus')}}">
                                             <i class="menu-icon fa fa-rocket"></i>
-                                            <span class="menu-text">Billing</span>
+                                            <span class="menu-text">Leads status</span>
                                         </a>
                                     </li>
 

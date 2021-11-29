@@ -146,4 +146,25 @@ class HomeController extends Controller
 
     }
 
+
+    public function leadStatus()
+    {
+
+
+        $FormPosting="leadStatus";
+        $Leads=Lead::all();
+
+
+
+        $InformationArray=Array(
+            "ParentPage"  =>   "Account Management",
+            "CurrentPage" =>   "leadStatus",
+            "Leads" =>     $Leads,
+            "TableName" =>     "Leads Table"
+        );
+        return view('leadStatus',$InformationArray);
+
+
+    }
+
 }
