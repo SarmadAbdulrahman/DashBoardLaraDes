@@ -31,7 +31,7 @@
                 <a class="sidebar-toggler" href="#">
                     <i class="fa fa-arrows-h"></i>
                 </a>
-                <a class="refresh" id="refresh-toggler" href="default.htm">
+                <a class="refresh" id="refresh-toggler" href="#">
                     <i class="glyphicon glyphicon-refresh"></i>
                 </a>
                 <a class="fullscreen" id="fullscreen-toggler" href="#">
@@ -46,11 +46,9 @@
             <!-- Your Content Goes Here -->
 
 
-
-
             <div class="row">
 
-                <form  action="{{url($FormPosting)}}" method="post">
+                <form action="{{url($FormPosting)}}" method="post">
                     @csrf
 
                     <div class="col-lg-6 col-sm-6 col-xs-12">
@@ -82,31 +80,25 @@
                                 <div id="registration-form">
                                     <form role="form">
                                         <div class="form-title">
-                                            Lead  Information
+                                            Lead Information
                                         </div>
                                         <div class="form-group">
                                                                <span class="input-icon icon-right">
-                                                                   <input type="text" name="Username" class="form-control"  placeholder="Username">
-                                                                   <i class="glyphicon glyphicon-user circular"></i>
+                                                                   <input type="text" name="page_name"
+                                                                          class="form-control" placeholder="page_name">
+                                                                   <i class="glyphicon glyphicon-pawn circular"></i>
                                                                </span>
                                         </div>
 
 
-
                                         <div class="form-group">
                                                                <span class="input-icon icon-right">
-                                                                   <input type="text" name="email"  class="form-control" id="emailInput" placeholder="Email Address">
+                                                                   <input type="text" name="channel_type"
+                                                                          class="form-control"
+                                                                          id="emailInput" placeholder="channel_type">
                                                                    <i class="fa fa-envelope-o circular"></i>
                                                                </span>
                                         </div>
-                                        <div class="form-group">
-                                                               <span class="input-icon icon-right">
-                                                                   <input type="text"  name="Password" class="form-control" id="passwordInput" placeholder="Password">
-                                                                   <i class="fa fa-lock circular"></i>
-                                                               </span>
-                                        </div>
-
-
 
 
                                         <div class="form-title">
@@ -116,7 +108,9 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                                        <span class="input-icon icon-right">
-                                                                           <input type="text"  name="Shope_Name"  class="form-control" placeholder="Shope Name">
+                                                                           <input type="text" name="channel_links"
+                                                                                  class="form-control"
+                                                                                  placeholder="channel_links">
                                                                           <i class="fas fa-store-alt"></i>
                                                                        </span>
                                                 </div>
@@ -124,7 +118,9 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                                        <span class="input-icon icon-right">
-                                                                           <input type="text" name="Shope_Type"  class="form-control" placeholder="Shope Type">
+                                                                           <input type="text" name="channel_liker"
+                                                                                  class="form-control"
+                                                                                  placeholder=" channel_liker">
                                                                            <i class="fas fa-store-alt"></i>
                                                                        </span>
                                                 </div>
@@ -138,51 +134,17 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                                        <span class="input-icon icon-right">
-                                                                           <input type="text"  name="Name"  class="form-control" placeholder="Name">
+                                                                           <input type="text" name="channel_number"
+                                                                                  class="form-control"
+                                                                                  placeholder="channel_number">
                                                                            <i class="fa fa-user"></i>
-                                                                       </span>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                                       <span class="input-icon icon-right">
-                                                                           <input type="text" name="Family"  class="form-control" placeholder="Family">
-                                                                           <i class="fa fa-user"></i>
-                                                                       </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                                       <span class="input-icon icon-right">
-                                                                           <input type="text" name="mobile"  class="form-control" placeholder="Phone one">
-                                                                           <i class="glyphicon glyphicon-earphone"></i>
-                                                                       </span>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                                       <span class="input-icon icon-right">
-                                                                           <input type="text" name="Phone_2"  class="form-control" placeholder="anther phone">
-                                                                           <i class="glyphicon glyphicon-phone"></i>
-                                                                       </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr class="wide" />
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                                       <span class="input-icon icon-right">
-                                                                           <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy" placeholder="Birth Date">
-                                                                           <i class="fa fa-calendar"></i>
                                                                        </span>
                                                 </div>
                                             </div>
 
                                         </div>
 
+                                        <hr class="wide"/>
                                         <button type="submit" class="btn btn-blue">Register</button>
                                     </form>
                                 </div>
@@ -192,13 +154,61 @@
                 </form>
                 <!-- /Page Body -->
             </div>
-            <!-- /Page Content -->
+
+
+            <!-- this is for tables -->
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <div class="widget flat radius-bordered">
+                        <div class="widget-header bg-gold">
+                            <span class="widget-caption">{{$TableName}}</span>
+                        </div>
+                        <div class="widget-body">
+
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        #
+                                    </th>
+                                    <th>
+                                        page_name
+                                    </th>
+                                    <th>
+                                        channel_type
+                                    </th>
+                                    <th>
+                                        channel_number
+                                    </th>
+                                    <th>
+                                        channel_liker
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($Leads as $Lead)
+                                    <tr>
+                                        <td>{{$Lead->id}}</td>
+                                        <td>{{$Lead->page_name}}</td>
+                                        <td>{{$Lead->channel_type}}</td>
+                                        <td>{{$Lead->channel_number}}</td>
+                                        <td>{{$Lead->channel_liker}}</td>
+                                    </tr>
+                                @endforeach
+
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- this is for tables -->
         </div>
         <!-- /Page Container -->
         <!-- Main Container -->
-
     </div>
-
-
 @endsection
 @extends('layouts.Footer')

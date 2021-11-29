@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lead;
 use Illuminate\Http\Request;
 use App\Models\Cocker;
 use App\Models\User;
@@ -99,6 +100,7 @@ class HomeController extends Controller
     {
 
         $FormPosting="StoreNewLeads";
+        $Leads=Lead::all();
 
 
 
@@ -106,7 +108,9 @@ class HomeController extends Controller
             "ParentPage"  =>   "Account Management",
             "CurrentPage" =>   "Create New Lead",
             "FormName"    =>    "Lead Information",
-            "FormPosting" =>     $FormPosting
+            "FormPosting" =>     $FormPosting,
+            "Leads" =>     $Leads,
+             "TableName" =>     "Leads Table"
         );
         return view('CreateLead',$InformationArray);
 
@@ -120,22 +124,25 @@ class HomeController extends Controller
 
 
         $validated = $Request->validate([
-            'Username' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'mobile' => ['required', 'string', 'max:255', 'unique:users'],
-            'Shope_Name' => ['required', 'string', 'max:255'],
-            'Shope_Type' => ['required', 'string', 'max:255'],
-            'Name' => ['required', 'string', 'max:255'],
-            'Family' => ['required', 'string', 'max:255'],
-            'Phone_2' => ['required', 'string', 'max:255'],
+            'channel_number' => ['required', 'string', 'max:255'],
+            'channel_links' => ['required', 'string', 'unique:leads'],
+            'channel_type' => ['required', 'string', 'max:255'],
+            'page_name' => ['required', 'string', 'max:255'],
+            'channel_liker' => ['required', 'string', 'max:255'],
         ]);
 
 
+        Lead::create([
+            'page_name'       =>$Request->page_name
+            , 'channel_type'  =>$Request->channel_type
+            , 'channel_links' =>$Request->channel_links
+            , 'channel_number'=>$Request->channel_number
+            , 'channel_liker' =>$Request->channel_liker
+            , 'deal_status_id' =>8
+        ]);
 
 
-
-
-        return redirect()->back()->with('success','Shop successfully added.');
+        return redirect()->back()->with('success','Leads successfully added.');
 
     }
 
