@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DealStatus;
 use App\Models\Lead;
 use Illuminate\Http\Request;
 use App\Models\Cocker;
@@ -153,17 +154,32 @@ class HomeController extends Controller
 
         $FormPosting="leadStatus";
         $Leads=Lead::all();
+        $DealStatus=DealStatus::all();
 
 
 
         $InformationArray=Array(
             "ParentPage"  =>   "Account Management",
             "CurrentPage" =>   "leadStatus",
+            "DealStatus" =>     $DealStatus,
             "Leads" =>     $Leads,
             "TableName" =>     "Leads Table"
         );
         return view('leadStatus',$InformationArray);
 
+
+    }
+
+    public function updateStatus(Request $request)
+    {
+
+
+         $Leads=Lead::find($request->leadId);
+         $Leads->deal_status_id=$request->status;
+        $Leads->save();
+        return redirect()->back()->with('success','Leads successfully updated.');
+
+      //  dd($request);
 
     }
 

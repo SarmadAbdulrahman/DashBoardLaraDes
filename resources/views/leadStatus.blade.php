@@ -54,6 +54,14 @@
                         </div>
                         <div class="widget-body">
 
+                            @if ($message = Session::get('success'))
+                                <div class="alert alert-success alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @endif
+
+
                             <table class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
@@ -95,20 +103,51 @@
                                         <td>{{$Lead->channel_liker}}</td>
                                         <td>{{\App\Models\DealStatus::find($Lead->deal_status_id)->name}}</td>
                                         <td>
-                                            <button class="btn btn-azure">تحديث الحالة</button>
+                                            <button id="{{$Lead->id}}"  class="btn btn-azure uptStatus">تحديث الحالة</button>
                                         </td>
 
                                         <td>
-                                            <button class="btn btn-darkorange">تفاصيل</button>
+                                            <a href="#" id="{{$Lead->id}}" class="btn btn-darkorange uptDetails">تفاصيل</a>
                                         </td>
                                     </tr>
                                 @endforeach
+
+
+
 
                                 </tbody>
                             </table>
 
 
+
+
+                                <form method="POST" action="{{url('updateStatus')}}">
+                                <div class="modal modal-primary" id="ChangeStatus">
+                                    @csrf
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <h4 class="modal-title">تحديث الحالة</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                  <select  class="form-control" name="status">
+                                                     @foreach($DealStatus as $Deal)
+                                                          <option value="{{$Deal->id}}">{{$Deal->name}}</option>
+                                                      @endforeach
+                                                  </select>
+                                                <input type="hidden" name="leadId" id="leadId">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-warning" data-dismiss="modal">غلق</button>
+                                                <button type="submit" class="btn btn-primary">تحديث</button>
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div><!-- /.modal -->
+                    </form>
                         </div>
+
                     </div>
                 </div>
 
@@ -120,3 +159,18 @@
     </div>
 @endsection
 @extends('layouts.Footer')
+@section('js')
+    <script>
+        $(document).ready(function (){
+
+
+            $(".uptStatus").on('click',function (){
+                // this is for change the status of the leads
+              //  $(this)
+                $('#leadId').val( $(this).attr('id'))
+                $("#ChangeStatus").modal('show');
+            });
+
+        });
+    </script>
+@endsection

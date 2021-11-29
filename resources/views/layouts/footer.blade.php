@@ -9,6 +9,7 @@
     <script src="{{url('assets/js/beyond.min.js')}}"></script>
 
     <!--Page Related Scripts-->
+    @yield('js')
 
 </body>
 <!--  /Body -->

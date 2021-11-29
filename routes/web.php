@@ -36,3 +36,6 @@ Route::post('/StoreNewLeads', [App\Http\Controllers\HomeController::class, 'Stor
 
 
 Route::get('/leadStatus', [App\Http\Controllers\HomeController::class, 'leadStatus'])->name('leadStatus');
+// updateStatus
+
+Route::post('/updateStatus', [App\Http\Controllers\HomeController::class, 'updateStatus'])->name('updateStatus');
