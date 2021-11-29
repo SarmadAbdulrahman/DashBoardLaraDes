@@ -107,7 +107,7 @@
                                         </td>
 
                                         <td>
-                                            <a href="#" id="{{$Lead->id}}" class="btn btn-darkorange uptDetails">تفاصيل</a>
+                                            <a href="{{url('leadDetails?id='.$Lead->id)}}"  class="btn btn-darkorange uptDetails">تفاصيل</a>
                                         </td>
                                     </tr>
                                 @endforeach

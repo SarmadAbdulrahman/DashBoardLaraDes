@@ -27,15 +27,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/CreateAccounts', [App\Http\Controllers\HomeController::class, 'CreateAccounts'])->name('CreateAccounts');
-//StoreNewAccounts   leadStatus
 Route::post('/StoreNewAccounts', [App\Http\Controllers\HomeController::class, 'StoreNewAccounts'])->name('StoreNewAccounts');
-
-
 Route::get('/CreateLead', [App\Http\Controllers\HomeController::class, 'CreateLead'])->name('CreateLead');
 Route::post('/StoreNewLeads', [App\Http\Controllers\HomeController::class, 'StoreNewLeads'])->name('StoreNewLeads');
-
-
 Route::get('/leadStatus', [App\Http\Controllers\HomeController::class, 'leadStatus'])->name('leadStatus');
-// updateStatus
-
 Route::post('/updateStatus', [App\Http\Controllers\HomeController::class, 'updateStatus'])->name('updateStatus');
+Route::get('/leadDetails', [App\Http\Controllers\HomeController::class, 'leadDetails'])->name('leadDetails');
+// StoreFlowUps
+
+Route::post('/StoreFlowUps', [App\Http\Controllers\HomeController::class, 'StoreFlowUps'])->name('StoreFlowUps');

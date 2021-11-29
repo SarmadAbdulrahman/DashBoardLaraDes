@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DealStatus;
 use App\Models\Lead;
+use App\Models\LeadFlowUp;
 use Illuminate\Http\Request;
 use App\Models\Cocker;
 use App\Models\User;
@@ -181,6 +182,36 @@ class HomeController extends Controller
 
       //  dd($request);
 
+    }
+
+
+    public function leadDetails(Request $request)
+    {
+
+        $LeadFlowUps=LeadFlowUp::where('lead_id','=',$request->id)->get();
+        $InformationArray=Array(
+            "ParentPage"  =>   "Account Management",
+            "CurrentPage" =>   "lead Flow ups",
+            "LeadFlowUps" =>     $LeadFlowUps,
+            "TableName" =>     "lead Flow ups",
+              "FormName" =>"LeadFlowUp",
+            "lead_id"=>$request->id
+        );
+        return view('leadDetails',$InformationArray);
+
+    }
+
+
+    public function StoreFlowUps(Request $request)
+    {
+         LeadFlowUp::create([
+             'MessageToLead' =>$request->MessageToLead
+             ,'Response'  =>$request->Response
+             ,'lead_id'  =>$request->lead_id
+             ,'EvaluationCall' =>""
+         ]);
+
+        return redirect()->back()->with('success','Leads successfully updated.');
     }
 
 }
