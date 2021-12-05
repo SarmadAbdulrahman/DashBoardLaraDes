@@ -80,9 +80,14 @@ class HomeController extends Controller
        'password' => Hash::make($Request['password'])
      ]);
 
+   // ASSIGN
 
 
-      Cocker::create([
+         $user->assignRole('SYSCOKER');
+
+
+
+         Cocker::create([
         "Shope_Name"=>$Request->Shope_Name,
         "Shope_Type"=>$Request->Shope_Type,
         "user_id"   =>$user->id

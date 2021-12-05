@@ -22,5 +22,6 @@ class SystemRoleSeeeder extends Seeder
           Role::create(['name' => 'SYSCOKER']);
           Role::create(['name' => 'SYSCALLCENTER']);
           Role::create(['name' => 'SYSFINAINCE']);
+          Role::create(['name' => 'SYSCUSTOMER']);
     }
 }

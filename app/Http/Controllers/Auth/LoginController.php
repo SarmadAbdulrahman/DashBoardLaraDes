@@ -30,16 +30,10 @@ class LoginController extends Controller
 
 
 
-    /**
-   * Get the login username to be used by the controller.
-   *
-   * @return string
-   */
-  public function username()
-  {
-      return 'mobile';
-  }
-  
+    protected $username='mobile';
+
+
+
     /**
      * Create a new controller instance.
      *
@@ -47,6 +41,13 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+     //   dd("d");
         $this->middleware('guest')->except('logout');
     }
+
+    public function username()
+    {
+        return $this->username;
+    }
+
 }
