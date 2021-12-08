@@ -38,3 +38,4 @@ Route::get('/leadDetails', [App\Http\Controllers\HomeController::class, 'leadDet
 Route::post('/StoreFlowUps', [App\Http\Controllers\HomeController::class, 'StoreFlowUps'])->name('StoreFlowUps');
 
 Route::get('/GalaryManagement', [App\Http\Controllers\HomeController::class, 'GalaryManagement'])->name('GalaryManagement');
+Route::post('/uploadfile', [App\Http\Controllers\HomeController::class, 'uploadfile'])->name('uploadfile');

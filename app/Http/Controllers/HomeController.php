@@ -22,7 +22,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-    //    $this->middleware('auth');  // this is comment for testwisae only
+        //    $this->middleware('auth');  // this is comment for testwisae only
     }
 
     /**
@@ -41,93 +41,85 @@ class HomeController extends Controller
     {
 
 
-    //  $path = public_path('test');
-    // $files = File::allFiles($path);
+        //  $path = public_path('test');
+        // $files = File::allFiles($path);
 
 
+        // return mime type ala mimetype extension
 
-      // return mime type ala mimetype extension
-
-      $InformationArray=Array(
-        "ParentPage"  =>   "Account Management",
-        "CurrentPage" =>   "Create New Accounts",
-        "FormName"    =>    "Account Information",
-      );
-      return view('CreateAccounts',$InformationArray);
+        $InformationArray = array(
+            "ParentPage" => "Account Management",
+            "CurrentPage" => "Create New Accounts",
+            "FormName" => "Account Information",
+        );
+        return view('CreateAccounts', $InformationArray);
 
     }
 
 
-     public function StoreNewAccounts(Request $Request)
-     {
+    public function StoreNewAccounts(Request $Request)
+    {
 
-       $validated = $Request->validate([
-         'Username' => ['required', 'string', 'max:255'],
-         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-         'mobile' => ['required', 'string', 'max:255', 'unique:users'],
-         'Shope_Name' => ['required', 'string', 'max:255'],
-         'Shope_Type' => ['required', 'string', 'max:255'],
-         'Name' => ['required', 'string', 'max:255'],
-         'Family' => ['required', 'string', 'max:255'],
-         'Phone_2' => ['required', 'string', 'max:255'],
-   ]);
-
-
-   $user=User::create([
-       'name' => $Request['Username'],
-       'email' => $Request['email'],
-        'mobile' => $Request['mobile'],
-       'password' => Hash::make($Request['Password'])
-     ]);
-
-   // ASSIGN
+        $validated = $Request->validate([
+            'Username' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'mobile' => ['required', 'string', 'max:255', 'unique:users'],
+            'Shope_Name' => ['required', 'string', 'max:255'],
+            'Shope_Type' => ['required', 'string', 'max:255'],
+            'Name' => ['required', 'string', 'max:255'],
+            'Family' => ['required', 'string', 'max:255'],
+            'Phone_2' => ['required', 'string', 'max:255'],
+        ]);
 
 
-         $user->assignRole('SYSCOKER');
+        $user = User::create([
+            'name' => $Request['Username'],
+            'email' => $Request['email'],
+            'mobile' => $Request['mobile'],
+            'password' => Hash::make($Request['Password'])
+        ]);
+
+        // ASSIGN
 
 
-
-         Cocker::create([
-        "Shope_Name"=>$Request->Shope_Name,
-        "Shope_Type"=>$Request->Shope_Type,
-        "user_id"   =>$user->id
-      ]);
+        $user->assignRole('SYSCOKER');
 
 
+        Cocker::create([
+            "Shope_Name" => $Request->Shope_Name,
+            "Shope_Type" => $Request->Shope_Type,
+            "user_id" => $user->id
+        ]);
 
 
-      return redirect()->back()->with('success','Shop successfully added.');
+        return redirect()->back()->with('success', 'Shop successfully added.');
 
-     }
-
+    }
 
 
     // CreateLead
     public function CreateLead()
     {
 
-        $FormPosting="StoreNewLeads";
-        $Leads=Lead::all();
+        $FormPosting = "StoreNewLeads";
+        $Leads = Lead::all();
 
 
-
-        $InformationArray=Array(
-            "ParentPage"  =>   "Account Management",
-            "CurrentPage" =>   "Create New Lead",
-            "FormName"    =>    "Lead Information",
-            "FormPosting" =>     $FormPosting,
-            "Leads" =>     $Leads,
-             "TableName" =>     "Leads Table"
+        $InformationArray = array(
+            "ParentPage" => "Account Management",
+            "CurrentPage" => "Create New Lead",
+            "FormName" => "Lead Information",
+            "FormPosting" => $FormPosting,
+            "Leads" => $Leads,
+            "TableName" => "Leads Table"
         );
-        return view('CreateLead',$InformationArray);
+        return view('CreateLead', $InformationArray);
 
     }
 
 
-
     public function StoreNewLeads(Request $Request)
     {
-
 
 
         $validated = $Request->validate([
@@ -140,16 +132,16 @@ class HomeController extends Controller
 
 
         Lead::create([
-            'page_name'       =>$Request->page_name
-            , 'channel_type'  =>$Request->channel_type
-            , 'channel_links' =>$Request->channel_links
-            , 'channel_number'=>$Request->channel_number
-            , 'channel_liker' =>$Request->channel_liker
-            , 'deal_status_id' =>8
+            'page_name' => $Request->page_name
+            , 'channel_type' => $Request->channel_type
+            , 'channel_links' => $Request->channel_links
+            , 'channel_number' => $Request->channel_number
+            , 'channel_liker' => $Request->channel_liker
+            , 'deal_status_id' => 8
         ]);
 
 
-        return redirect()->back()->with('success','Leads successfully added.');
+        return redirect()->back()->with('success', 'Leads successfully added.');
 
     }
 
@@ -158,20 +150,19 @@ class HomeController extends Controller
     {
 
 
-        $FormPosting="leadStatus";
-        $Leads=Lead::all();
-        $DealStatus=DealStatus::all();
+        $FormPosting = "leadStatus";
+        $Leads = Lead::all();
+        $DealStatus = DealStatus::all();
 
 
-
-        $InformationArray=Array(
-            "ParentPage"  =>   "Account Management",
-            "CurrentPage" =>   "leadStatus",
-            "DealStatus" =>     $DealStatus,
-            "Leads" =>     $Leads,
-            "TableName" =>     "Leads Table"
+        $InformationArray = array(
+            "ParentPage" => "Account Management",
+            "CurrentPage" => "leadStatus",
+            "DealStatus" => $DealStatus,
+            "Leads" => $Leads,
+            "TableName" => "Leads Table"
         );
-        return view('leadStatus',$InformationArray);
+        return view('leadStatus', $InformationArray);
 
 
     }
@@ -180,12 +171,12 @@ class HomeController extends Controller
     {
 
 
-         $Leads=Lead::find($request->leadId);
-         $Leads->deal_status_id=$request->status;
+        $Leads = Lead::find($request->leadId);
+        $Leads->deal_status_id = $request->status;
         $Leads->save();
-        return redirect()->back()->with('success','Leads successfully updated.');
+        return redirect()->back()->with('success', 'Leads successfully updated.');
 
-      //  dd($request);
+        //  dd($request);
 
     }
 
@@ -193,42 +184,92 @@ class HomeController extends Controller
     public function leadDetails(Request $request)
     {
 
-        $LeadFlowUps=LeadFlowUp::where('lead_id','=',$request->id)->get();
-        $InformationArray=Array(
-            "ParentPage"  =>   "Account Management",
-            "CurrentPage" =>   "lead Flow ups",
-            "LeadFlowUps" =>     $LeadFlowUps,
-            "TableName" =>     "lead Flow ups",
-              "FormName" =>"LeadFlowUp",
-            "lead_id"=>$request->id
+        $LeadFlowUps = LeadFlowUp::where('lead_id', '=', $request->id)->get();
+        $InformationArray = array(
+            "ParentPage" => "Account Management",
+            "CurrentPage" => "lead Flow ups",
+            "LeadFlowUps" => $LeadFlowUps,
+            "TableName" => "lead Flow ups",
+            "FormName" => "LeadFlowUp",
+            "lead_id" => $request->id
         );
-        return view('leadDetails',$InformationArray);
+        return view('leadDetails', $InformationArray);
 
     }
 
 
     public function StoreFlowUps(Request $request)
     {
-         LeadFlowUp::create([
-             'MessageToLead' =>$request->MessageToLead
-             ,'Response'  =>$request->Response
-             ,'lead_id'  =>$request->lead_id
-             ,'EvaluationCall' =>""
-         ]);
+        LeadFlowUp::create([
+            'MessageToLead' => $request->MessageToLead
+            , 'Response' => $request->Response
+            , 'lead_id' => $request->lead_id
+            , 'EvaluationCall' => ""
+        ]);
 
-        return redirect()->back()->with('success','Leads successfully updated.');
+        return redirect()->back()->with('success', 'Leads successfully updated.');
     }
 
-    public function GalaryManagement(){
+    public function GalaryManagement()
+    {
 
 
-        $InformationArray=Array(
-            "ParentPage"  =>   "Account Management",
-            "CurrentPage" =>   "Create New Accounts",
-            "FormName"    =>    "Account Information",
+        $InformationArray = array(
+            "ParentPage" => "Account Management",
+            "CurrentPage" => "Create New Accounts",
+            "FormName" => "Account Information",
         );
 
-        return view('GalaryManagement',$InformationArray);
+        return view('GalaryManagement', $InformationArray);
     }
 
+
+    public function uploadfile(Request $request)
+    {
+
+     //   dd($request);
+
+        try {
+            if (
+                !isset($request['file'])
+            ) {
+               // throw new RuntimeException('Invalid parameters.');
+            }
+
+            switch ($request['file']) {
+                case UPLOAD_ERR_OK:
+                    break;
+                case UPLOAD_ERR_NO_FILE:
+                 //   throw new RuntimeException('No file sent.');
+                case UPLOAD_ERR_INI_SIZE:
+                case UPLOAD_ERR_FORM_SIZE:
+                  //  throw new RuntimeException('Exceeded filesize limit.');
+                default:
+                  //  throw new RuntimeException('Unknown errors.');
+            }
+
+            $filepath = sprintf('files/%s_%s', uniqid(), $request['file']);
+            $imageName = time().'.'.$request->file->extension();
+
+            $request->file->move(public_path("files"),$imageName);
+
+
+            // All good, send the response
+            echo json_encode([
+                'status' => 'ok',
+                'path' => $filepath
+            ]);
+
+        } catch (RuntimeException $e) {
+            // Something went wrong, send the err message as JSON
+            http_response_code(400);
+
+            echo json_encode([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ]);
+
+        }
+
+    }
 }
