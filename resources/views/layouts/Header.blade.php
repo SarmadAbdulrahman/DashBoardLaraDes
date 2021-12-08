@@ -36,6 +36,15 @@ Date:2021-11-22 11:41 AM
 
     <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
     <script src="{{url('assets/js/skins.min.js')}}"></script>
+
+
+    <!-- Ignite UI for jQuery Required Combined CSS Files -->
+    <link href="{{url('assets/dist/css/jquery.dm-uploader.min.css')}}" rel="stylesheet">
+    <link href="{{url('styles.css')}}" rel="stylesheet">
+
+
+
+
 </head>
 @yield('SideBar')
 @yield('content')

@@ -77,7 +77,7 @@ class HomeController extends Controller
        'name' => $Request['Username'],
        'email' => $Request['email'],
         'mobile' => $Request['mobile'],
-       'password' => Hash::make($Request['password'])
+       'password' => Hash::make($Request['Password'])
      ]);
 
    // ASSIGN
@@ -217,6 +217,18 @@ class HomeController extends Controller
          ]);
 
         return redirect()->back()->with('success','Leads successfully updated.');
+    }
+
+    public function GalaryManagement(){
+
+
+        $InformationArray=Array(
+            "ParentPage"  =>   "Account Management",
+            "CurrentPage" =>   "Create New Accounts",
+            "FormName"    =>    "Account Information",
+        );
+
+        return view('GalaryManagement',$InformationArray);
     }
 
 }

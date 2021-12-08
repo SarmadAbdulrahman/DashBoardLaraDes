@@ -36,3 +36,5 @@ Route::get('/leadDetails', [App\Http\Controllers\HomeController::class, 'leadDet
 // StoreFlowUps
 
 Route::post('/StoreFlowUps', [App\Http\Controllers\HomeController::class, 'StoreFlowUps'])->name('StoreFlowUps');
+
+Route::get('/GalaryManagement', [App\Http\Controllers\HomeController::class, 'GalaryManagement'])->name('GalaryManagement');

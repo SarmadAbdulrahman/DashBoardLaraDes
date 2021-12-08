@@ -388,6 +388,11 @@
                                 </a>
                             </li>
 
+                            <li>
+                                <a href="{{url('GalaryManagement')}}">
+                                    <span class="menu-text">GalaryManagement</span>
+                                </a>
+                            </li>
 
                             <li>
                                 <a href="{{url('CreateLead')}}">
