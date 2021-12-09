@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DealStatus;
+use App\Models\Item;
 use App\Models\Lead;
 use App\Models\LeadFlowUp;
 use Illuminate\Http\Request;
@@ -227,14 +228,8 @@ class HomeController extends Controller
     public function uploadfile(Request $request)
     {
 
-     //   dd($request);
 
         try {
-            if (
-                !isset($request['file'])
-            ) {
-               // throw new RuntimeException('Invalid parameters.');
-            }
 
             switch ($request['file']) {
                 case UPLOAD_ERR_OK:
@@ -248,28 +243,30 @@ class HomeController extends Controller
                   //  throw new RuntimeException('Unknown errors.');
             }
 
-            $filepath = sprintf('files/%s_%s', uniqid(), $request['file']);
-            $imageName = time().'.'.$request->file->extension();
-
+            $file=$request['file']->getClientOriginalName();
+            $filename = pathinfo($file, PATHINFO_FILENAME);
+            $imageName = $filename.'.'.$request->file->extension();
             $request->file->move(public_path("files"),$imageName);
 
+            Item::create([
 
-            // All good, send the response
-            echo json_encode([
-                'status' => 'ok',
-                'path' => $filepath
-            ]);
-//sdadasdsadsad
-        } catch (RuntimeException $e) {
-            // Something went wrong, send the err message as JSON
-            http_response_code(400);
+                 'cooker_id' =>1
+                , 'gat_id'  =>1
+                , 'item_name' =>$filename
+                , 'item_desc'=>$filename
+                , 'item_img'=>$imageName
+                , 'unit_price'=>0
+                , 'option'=>$filename
 
-            echo json_encode([
-                'status' => 'error',
-                'message' => $e->getMessage()
             ]);
+
+        } catch (\Exception $e) {
+
+
+            return response(['status' => 'error', 'message' => $e->getMessage()],400);
 
         }
 
+        return  response(['status'=>'success'],200);
     }
 }

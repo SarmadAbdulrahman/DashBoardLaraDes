@@ -83,9 +83,7 @@
                             </div>
                         </div><!-- /file list -->
 
-                        <div class="alert alert-info" role="alert">
-                            More setup demos on: <a href="https://danielmg.org/demo/java-script/uploader/basic">https://danielmg.org/demo/java-script/uploader/basic</a>
-                        </div>
+
 
                         <div class="row">
                             <div class="col-12">
